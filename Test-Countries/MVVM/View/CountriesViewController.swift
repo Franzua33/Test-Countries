@@ -64,6 +64,12 @@ class CountriesViewController: UIViewController {
     }
     
     @objc func searchButtonTapped(){
+        guard let searchText = searchCountriesField.text, !searchText.isEmpty else {
+            print("El campo de búsqueda está vacío")
+            return
+        }
+        
+        viewModel.searchText = searchText // Actualizar el texto de búsqueda den el ViewModel
         viewModel.startSearch()
     }
     
