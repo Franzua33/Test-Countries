@@ -49,15 +49,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kbk-ho-2W4">
+                                <rect key="frame" x="29" y="402" width="348" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a3t-xk-5bZ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Kbk-ho-2W4" firstAttribute="top" secondItem="EHK-Ul-1dc" secondAttribute="bottom" constant="21" id="7Jz-HP-xgq"/>
                             <constraint firstItem="a3t-xk-5bZ" firstAttribute="trailing" secondItem="EHK-Ul-1dc" secondAttribute="trailing" constant="16" id="9dP-YK-Abf"/>
                             <constraint firstItem="a3t-xk-5bZ" firstAttribute="trailing" secondItem="Wb2-BR-PXE" secondAttribute="trailing" constant="76.5" id="H0j-Xw-Mt5"/>
                             <constraint firstItem="Wb2-BR-PXE" firstAttribute="leading" secondItem="a3t-xk-5bZ" secondAttribute="leading" constant="76.5" id="MOo-Q0-Gvv"/>
                             <constraint firstItem="a3t-xk-5bZ" firstAttribute="bottom" secondItem="EHK-Ul-1dc" secondAttribute="bottom" constant="437" id="QTJ-RR-SjT"/>
                             <constraint firstItem="a3t-xk-5bZ" firstAttribute="trailing" secondItem="mXe-wR-F4T" secondAttribute="trailing" constant="16" id="U66-AY-tnX"/>
+                            <constraint firstItem="Kbk-ho-2W4" firstAttribute="leading" secondItem="a3t-xk-5bZ" secondAttribute="leading" constant="29" id="cfb-Po-Z0I"/>
+                            <constraint firstItem="a3t-xk-5bZ" firstAttribute="trailing" secondItem="Kbk-ho-2W4" secondAttribute="trailing" constant="16" id="hTW-Y0-OOU"/>
                             <constraint firstItem="mXe-wR-F4T" firstAttribute="top" secondItem="Wb2-BR-PXE" secondAttribute="bottom" constant="35" id="jAk-Z3-JYf"/>
                             <constraint firstItem="EHK-Ul-1dc" firstAttribute="top" secondItem="mXe-wR-F4T" secondAttribute="bottom" constant="26" id="rhs-2R-ohf"/>
                             <constraint firstItem="mXe-wR-F4T" firstAttribute="leading" secondItem="a3t-xk-5bZ" secondAttribute="leading" constant="29" id="vBU-nk-anz"/>
@@ -70,6 +79,7 @@
                         <outlet property="capitalLabel" destination="EHK-Ul-1dc" id="4aB-Ni-rE0"/>
                         <outlet property="imageCountry" destination="Wb2-BR-PXE" id="EAW-u6-Blc"/>
                         <outlet property="nameCountryLabel" destination="mXe-wR-F4T" id="LGf-J7-oWW"/>
+                        <outlet property="populationLabel" destination="Kbk-ho-2W4" id="sDY-Xt-erf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4A-aO-rPv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

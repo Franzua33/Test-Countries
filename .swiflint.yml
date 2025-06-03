@@ -1,0 +1,6 @@
+included:
+  - Test-Countries
+excluded:
+  - Carthage
+  - Pods
+  - .build

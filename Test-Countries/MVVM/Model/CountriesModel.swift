@@ -7,13 +7,14 @@
 
 import Foundation
 
-//https://restcountries.com/v3.1/all
-//https://restcountries.com/v3.1/name/{name}
+// https://restcountries.com/v3.1/all
+// https://restcountries.com/v3.1/name/{name}
 
 struct CountriesModel: Codable {
     let name: NamesCountry?
     let region: String?
-    let coatOfArms:Flag?
+    let coatOfArms: Flag?
+    let population: Int?
 }
 struct NamesCountry: Codable {
     let common: String?
@@ -22,6 +23,3 @@ struct NamesCountry: Codable {
 struct Flag: Codable {
     let png: String?
 }
-
-
-

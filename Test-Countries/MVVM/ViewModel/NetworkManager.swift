@@ -8,38 +8,35 @@
 import Foundation
 
 class NetworkManager {
-    
+
     // Crear el delegate personalizado
     private let customDelegate = CustomURLSessionDelegate()
- 
-    
+
     // Crear URLSession con el delegate personalizado
     private lazy var customURLSession: URLSession = {
         return URLSession(configuration: .default, delegate: customDelegate, delegateQueue: nil)
     }()
     // https://jsonplaceholder.typicode.com/posts
     // completion = a Dato a devolver
-    func getAllCountries(completion: @escaping([CountriesModel]) -> ()) {
+    func getAllCountries(completion: @escaping ([CountriesModel]) -> Void) {
         guard let url = URL(string: "https://restcountries.com/v3.1/all") else {
             fatalError("La url no es correcta o no se ha podido acceder a ella")
         }
-        
+
         customURLSession.dataTask(with: url) { datos, respuesta, error in
-            
+//            guard let self = self else { return }
             guard let data = datos, error == nil, let response = respuesta as? HTTPURLResponse else {
                 return
             }
-            
 
             let countriesData = try? JSONSerialization.jsonObject(with: data)
             //           Ver datos Serializados en Consola
             print("Datos Serializados : \(String(describing: countriesData))")
             if response.statusCode == 200 {
-                
 
                 do {
                     let countries = try JSONDecoder().decode([CountriesModel].self, from: data)
-                   
+
                     DispatchQueue.main.async {
                         completion(countries)
                     }
@@ -47,15 +44,15 @@ class NetworkManager {
                     print("Ha ocurrrido un error: \(error.localizedDescription)")
                 }
             }
-            
+
         }.resume()
     }
-    
-    func getContries(name: String, completion: @escaping(([CountriesModel])->())){
+
+    func getContries(name: String, completion: @escaping (([CountriesModel]) -> Void)) {
         guard let url = URL(string: "https://restcountries.com/v3.1/name/\(name)") else {
             fatalError("La url no es correcta o no se ha podido acceder a ella")
         }
-        
+
         customURLSession.dataTask(with: url) { datos, respuesta, error in
             guard let data = datos, error == nil, let response = respuesta as? HTTPURLResponse else {
                 return
@@ -66,7 +63,7 @@ class NetworkManager {
             if response.statusCode == 200 {
                 do {
                     let countries = try JSONDecoder().decode([CountriesModel].self, from: data)
-                   
+
                     DispatchQueue.main.async {
                         completion(countries)
                     }
@@ -74,25 +71,11 @@ class NetworkManager {
                     print("Ha ocurrrido un error: \(error.localizedDescription)")
                 }
             }
-            
+
         }.resume()
     }
-    
 
 }
-
-// SOLO PARA DESARROLLO - NUNCA EN PRODUCCIÓN
-//class CustomURLSessionDelegate: NSObject, URLSessionDelegate {
-//    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
-//        
-//        // Solo acepta si es el dominio específico que estás probando
-//        if challenge.protectionSpace.host == "restcountries.com" {
-//            completionHandler(.useCredential, URLCredential(trust: challenge.protectionSpace.serverTrust!))
-//        } else {
-//            completionHandler(.performDefaultHandling, nil)
-//        }
-//    }
-//}
 class CustomURLSessionDelegate: NSObject, URLSessionDelegate {
     func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         

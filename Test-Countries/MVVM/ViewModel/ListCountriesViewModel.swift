@@ -10,24 +10,24 @@ import Combine
 
 class ListCountriesViewModel {
 
-    var countriesList : [CountriesModel] = []
+    var countriesList: [CountriesModel] = []
 
-    var reloadData = PassthroughSubject<Void,Never>()
-    @Published var isLoading : Bool?
-    @Published var searchText: String = ""
+    var reloadData = PassthroughSubject<Void, Never>()
+    @Published var isLoading: Bool?
+    var searchText: String = ""
 
-    func getAllCountries(){
+    func getAllCountries() {
         isLoading = true
-            NetworkManager().getAllCountries { (allCountries) in
-                self.countriesList = allCountries
-                self.reloadData.send()
-                self.isLoading = false
+        NetworkManager().getAllCountries { [weak self](allCountries) in
+                self?.countriesList = allCountries
+                self?.reloadData.send()
+                self?.isLoading = false
             }
         }
-    
-    func startSearch(){
+
+    func startSearch() {
         isLoading = true
-        NetworkManager().getContries(name: searchText){ [weak self] countries in
+        NetworkManager().getContries(name: searchText) { [weak self] countries in
             self?.isLoading = false
             self?.countriesList = countries
             self?.reloadData.send()
@@ -35,7 +35,3 @@ class ListCountriesViewModel {
     }
 
 }
-
-
-
-
