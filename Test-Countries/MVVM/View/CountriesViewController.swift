@@ -11,8 +11,8 @@ class CountriesViewController: UIViewController {
     
     // PROPERTIES:
     var viewModel: ListCountriesViewModel = ListCountriesViewModel()
-    var anyCancellable : [AnyCancellable] = []
-    
+    var anyCancellable: [AnyCancellable] = []
+
     // Views
     var searchCountriesField: UITextField = {
         var textField = UITextField()
@@ -57,13 +57,9 @@ class CountriesViewController: UIViewController {
         
         buttonSearch.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         }
-        
-    @objc func textFieldDidChange(){
-        self.viewModel.startSearch()
-        viewModel.searchText = searchCountriesField.text ?? ""
     }
-    
-    @objc func searchButtonTapped(){
+
+    @objc func searchButtonTapped() {
         guard let searchText = searchCountriesField.text, !searchText.isEmpty else {
             print("El campo de búsqueda está vacío")
             return
@@ -72,31 +68,25 @@ class CountriesViewController: UIViewController {
         viewModel.searchText = searchText // Actualizar el texto de búsqueda den el ViewModel
         viewModel.startSearch()
     }
-    
-    func subscriptions(){
+
+    func subscriptions() {
         viewModel.reloadData.sink { _ in
-        } receiveValue: { [weak self]_ in
+        } receiveValue: { [weak self] _ in
             self?.listCountriesTableView.reloadData()
         }.store(in: &anyCancellable)
-        
+
         viewModel.$isLoading.sink { [weak self] state in
             guard let state = state else { return }
             self?.configLoading(state: state)
         }.store(in: &anyCancellable)
-
-        viewModel.searchText.publisher.sink { _ in
-             } receiveValue: { [weak self] nameText in
-                 self?.viewModel.startSearch()
-                 self?.listCountriesTableView.reloadData()
-             }.store(in: &anyCancellable)
     }
-    
-    private func configureConstraintsViews(){
+
+    private func configureConstraintsViews() {
         view.addSubview(searchCountriesField)
         view.addSubview(buttonSearch)
         view.addSubview(listCountriesTableView)
         view.addSubview(loading)
-        
+
         NSLayoutConstraint.activate([
             // searchCountriesField Constraints
             searchCountriesField.heightAnchor.constraint(equalToConstant: 40),
@@ -108,27 +98,27 @@ class CountriesViewController: UIViewController {
             buttonSearch.topAnchor.constraint(equalTo: searchCountriesField.topAnchor),
             buttonSearch.leadingAnchor.constraint(equalTo: searchCountriesField.trailingAnchor, constant: 5),
             buttonSearch.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-            
+
             // ListCountriesTableView Constraints
             listCountriesTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             listCountriesTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             listCountriesTableView.topAnchor.constraint(equalTo: searchCountriesField.bottomAnchor, constant: 15),
-            listCountriesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            listCountriesTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    func configLoading(state: Bool){
+    func configLoading(state: Bool) {
         if state {
             loading.startAnimating()
             listCountriesTableView.addSubview(loading)
             NSLayoutConstraint.activate([
                 loading.centerYAnchor.constraint(equalTo: listCountriesTableView.centerYAnchor),
-                loading.centerXAnchor.constraint(equalTo: listCountriesTableView.centerXAnchor),
+                loading.centerXAnchor.constraint(equalTo: listCountriesTableView.centerXAnchor)
             ])
             return
         } else {
             loading.removeFromSuperview()
         }
-        
+
     }
 
 }
@@ -137,11 +127,12 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.countriesList.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let user = viewModel.countriesList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = user.name?.common
+        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -150,6 +141,5 @@ extension CountriesViewController: UITableViewDelegate, UITableViewDataSource {
         vc.selectedCountry = viewModel.countriesList[indexPath.row]
         self.present(vc, animated: true)
     }
-    
-}
 
+}
