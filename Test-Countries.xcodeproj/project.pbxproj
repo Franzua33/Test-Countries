@@ -6,7 +6,18 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		65F5C6F82DED41FB0063E34B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 65FF94312DE7D01F008085BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65FF94382DE7D01F008085BC;
+			remoteInfo = "Test-Countries";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		65F5C6F42DED41FB0063E34B /* Test-CountriesTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test-CountriesTest.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		65FF94392DE7D01F008085BC /* Test-Countries.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Test-Countries.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -21,6 +32,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		65F5C6F52DED41FB0063E34B /* Test-CountriesTest */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Test-CountriesTest";
+			sourceTree = "<group>";
+		};
 		65FF943B2DE7D01F008085BC /* Test-Countries */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,6 +48,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		65F5C6F12DED41FB0063E34B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65FF94362DE7D01F008085BC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -46,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				65FF943B2DE7D01F008085BC /* Test-Countries */,
+				65F5C6F52DED41FB0063E34B /* Test-CountriesTest */,
 				65FF943A2DE7D01F008085BC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				65FF94392DE7D01F008085BC /* Test-Countries.app */,
+				65F5C6F42DED41FB0063E34B /* Test-CountriesTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +86,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		65F5C6F32DED41FB0063E34B /* Test-CountriesTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65F5C6FA2DED41FB0063E34B /* Build configuration list for PBXNativeTarget "Test-CountriesTest" */;
+			buildPhases = (
+				65F5C6F02DED41FB0063E34B /* Sources */,
+				65F5C6F12DED41FB0063E34B /* Frameworks */,
+				65F5C6F22DED41FB0063E34B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				65F5C6F92DED41FB0063E34B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				65F5C6F52DED41FB0063E34B /* Test-CountriesTest */,
+			);
+			name = "Test-CountriesTest";
+			packageProductDependencies = (
+			);
+			productName = "Test-CountriesTest";
+			productReference = 65F5C6F42DED41FB0063E34B /* Test-CountriesTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		65FF94382DE7D01F008085BC /* Test-Countries */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 65FF944C2DE7D021008085BC /* Build configuration list for PBXNativeTarget "Test-Countries" */;
@@ -68,6 +116,7 @@
 				65FF94352DE7D01F008085BC /* Sources */,
 				65FF94362DE7D01F008085BC /* Frameworks */,
 				65FF94372DE7D01F008085BC /* Resources */,
+				65F5C7222DEDD5CA0063E34B /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -93,6 +142,10 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1620;
 				TargetAttributes = {
+					65F5C6F32DED41FB0063E34B = {
+						CreatedOnToolsVersion = 16.2;
+						TestTargetID = 65FF94382DE7D01F008085BC;
+					};
 					65FF94382DE7D01F008085BC = {
 						CreatedOnToolsVersion = 16.2;
 					};
@@ -113,11 +166,19 @@
 			projectRoot = "";
 			targets = (
 				65FF94382DE7D01F008085BC /* Test-Countries */,
+				65F5C6F32DED41FB0063E34B /* Test-CountriesTest */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		65F5C6F22DED41FB0063E34B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65FF94372DE7D01F008085BC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,7 +188,35 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		65F5C7222DEDD5CA0063E34B /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		65F5C6F02DED41FB0063E34B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		65FF94352DE7D01F008085BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,7 +226,51 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		65F5C6F92DED41FB0063E34B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65FF94382DE7D01F008085BC /* Test-Countries */;
+			targetProxy = 65F5C6F82DED41FB0063E34B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		65F5C6FB2DED41FB0063E34B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T7J5A943R4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Test-Countries.Test-CountriesTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test-Countries.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Test-Countries";
+			};
+			name = Debug;
+		};
+		65F5C6FC2DED41FB0063E34B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = T7J5A943R4;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Test-Countries.Test-CountriesTest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Test-Countries.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Test-Countries";
+			};
+			name = Release;
+		};
 		65FF944D2DE7D021008085BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -151,8 +284,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -179,8 +312,8 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -316,6 +449,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		65F5C6FA2DED41FB0063E34B /* Build configuration list for PBXNativeTarget "Test-CountriesTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65F5C6FB2DED41FB0063E34B /* Debug */,
+				65F5C6FC2DED41FB0063E34B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		65FF94342DE7D01F008085BC /* Build configuration list for PBXProject "Test-Countries" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
