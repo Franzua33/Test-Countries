@@ -57,7 +57,7 @@ class CountriesViewController: UIViewController {
         
         buttonSearch.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
         }
-    }
+    
 
     @objc func searchButtonTapped() {
         guard let searchText = searchCountriesField.text, !searchText.isEmpty else {
@@ -68,7 +68,18 @@ class CountriesViewController: UIViewController {
         viewModel.searchText = searchText // Actualizar el texto de búsqueda den el ViewModel
         viewModel.startSearch()
     }
-
+        @objc func textFieldDidChange(){
+            
+            guard let textField = searchCountriesField.text else { return }
+             
+            viewModel.searchText = textField
+            if textField.isEmpty {
+                viewModel.getAllCountries()
+            } else {
+                viewModel.startSearch()
+            }
+        }
+    
     func subscriptions() {
         viewModel.reloadData.sink { _ in
         } receiveValue: { [weak self] _ in
